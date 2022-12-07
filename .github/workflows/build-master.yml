@@ -2,7 +2,7 @@ name: core-master branch
 on:
   push:
     branches:
-      - 'core-master'
+      - 'core-master-dd'
 jobs:
   deploy:
     name: deploy to cluster
