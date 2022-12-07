@@ -1,4 +1,4 @@
-eksctl create cluster --name raul-cardgame -f cluster.yaml
+eksctl create cluster -f cluster.yaml
 ## create rol AWSLoadBalancerControllerIAMPolicy y AmazonEKS_EBS_CSI_DriverRole
 
 eksctl create iamserviceaccount \
@@ -17,8 +17,10 @@ eksctl create iamserviceaccount \
 
 kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=master"
 
+helm repo add eks https://aws.github.io/eks-charts
+
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller  -n kube-system \
-  --set clusterName=raul-cardgame \
+  --set clusterName=dairon-cardgame2 \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller
 

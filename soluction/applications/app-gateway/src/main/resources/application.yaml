@@ -8,12 +8,12 @@ spring:
     gateway:
       enabled: true
       routes:
-        - id: master
-          uri: ${MASTER_URI:http://localhost:8085/}
-          predicates:
-              - Path=/master/**
-          filters:
-            - RewritePath=/master/(?<segment>.*), /$\{segment}
+#        - id: master
+#          uri: ${MASTER_URI:http://localhost:8085/}
+#          predicates:
+#              - Path=/master/**
+#          filters:
+#            - RewritePath=/master/(?<segment>.*), /$\{segment}
         - id: command
           uri: ${COMMAND_URI:http://localhost:8080/}
           predicates:
