@@ -1,9 +1,9 @@
 
 export const environment = {
   production: true,
-  apiBaseCommand: "http://localhost:8080",
-  apiBaseQuery: "http://localhost:8081",
-  socketBaseProxy: 'ws://localhost:8082',
+  apiBaseCommand: "https://k8s-default-cardgame-6e96056eb0-1898338761.us-east-1.elb.amazonaws.com/command",
+  apiBaseQuery: "https://k8s-default-cardgame-6e96056eb0-1898338761.us-east-1.elb.amazonaws.com/queries",
+  socketBaseProxy: 'ws://k8s-default-cardgame-6e96056eb0-1898338761.us-east-1.elb.amazonaws.com/proxy',
   firebase: {
     apiKey: "AIzaSyCTF2ftyL3fjJwKWod0OYwrWo_jPuwiL9o",
     authDomain: "card-game-sofka.firebaseapp.com",

@@ -27,6 +27,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 import reactor.rabbitmq.*;
 
+import javax.annotation.PostConstruct;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.security.KeyManagementException;
@@ -47,8 +48,8 @@ public class ApplicationConfig {
     }
 
 
-    @Bean
-    public AmqpAdmin amqpAdmin() {
+    @PostConstruct
+    public void amqpAdmin() {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory(URI.create(configProperties.getUriBus()));
         var amqpAdmin =  new RabbitAdmin(connectionFactory);
 
@@ -58,7 +59,6 @@ public class ApplicationConfig {
         amqpAdmin.declareQueue(queue);
         amqpAdmin.declareBinding(BindingBuilder.bind(queue).to(exchange).with(configProperties.getRoutingKey()));
 
-        return amqpAdmin;
     }
 
     @Bean
